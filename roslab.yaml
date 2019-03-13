@@ -3,13 +3,8 @@ name: deep-sea-snake
 base:
   ubuntu: 16.04
 
-apt:
-  - python-setuptools
-  - python-dev
-  
-pip:
+pip3:
   - tensorflow==1.4
   - numpy
-  - matplotlib==2.0.0
-
-
+  - matplotlib
+  - gym

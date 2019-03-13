@@ -34,21 +34,15 @@ EXPOSE 8888
 
 CMD ["jupyter", "lab", "--no-browser", "--ip=0.0.0.0", "--NotebookApp.token=''"]
 
-##################################### APT ######################################
+##################################### PIP3 #####################################
 
-RUN apt-get -o Acquire::ForceIPv4=true update \
- && apt-get -o Acquire::ForceIPv4=true install -yq --no-install-recommends \
-    python-setuptools \
-    python-dev \
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/*
+RUN pip3 install --upgrade pip
 
-##################################### PIP ######################################
-
-RUN pip install  \
+RUN pip3 install  \
     tensorflow==1.4 \
     numpy \
-    matplotlib==2.0.0
+    matplotlib \
+    gym
 
 ##################################### COPY #####################################
 
